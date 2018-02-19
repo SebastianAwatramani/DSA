@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace DS_And_A
 {
-    class Stack
+
+    interface IStack
+    {
+        int Pop();
+        void Push(int value);
+        int Peek();
+    }
+
+    class Stack : IStack
     {
         private LinkedList List;
 
