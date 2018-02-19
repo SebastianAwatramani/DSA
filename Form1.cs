@@ -33,15 +33,25 @@ namespace DS_And_A
             List.InsertAtHead(2);
             List.InsertAtHead(5);
 
-           // List.InsertByValue(36);
+            // List.InsertByValue(36);
 
-            Console.WriteLine(List.ToString());
-            List.InsertionSortDList();
+            //Console.WriteLine(List.ToString());
+            //List.InsertionSortDList();
 
-            Console.WriteLine(List.ToString());
+            //Console.WriteLine(List.ToString());
 
+            ArrayStack Stack = new ArrayStack();
 
-
+            Stack.Push(5);
+            Console.WriteLine(Stack.Pop().ToString());
+            Stack.Push(4);
+            Console.WriteLine(Stack.Pop().ToString());
+            Stack.Push(3);
+            Console.WriteLine(Stack.Pop().ToString());
+            Stack.Push(2);
+            Console.WriteLine(Stack.Pop().ToString());
+            Stack.Push(1);
+            Console.WriteLine(Stack.Pop().ToString());
         }
         public void AppendToOutput(String text)
         {
