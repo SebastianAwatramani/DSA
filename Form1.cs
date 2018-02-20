@@ -19,39 +19,19 @@ namespace DS_And_A
             InitializeComponent();
 
             //int[] valsBalls = new int[6] { 10, 2, 8, 6, 7, 3 };
-            int[] valsBalls = new int[6] { 10, 2, 3, 4, 5, 7 };
+            int[] valsBalls = new int[10] { 1, 2, 4, 8, 17, 26, 37, 48, 59,110};
             List<int> Balls = new List<int>(valsBalls);
 
-            //Sorter Sorter = new Sorter(this);
-            //Sorter.InsertionSort(Balls);
-            //Sorter.PrintArray(Balls);
+            Searcher Searcher = new Searcher(this);
 
-            DoublyLinkedList List = new DoublyLinkedList();
-            List.InsertAtHead(1);
-            List.InsertAtHead(40);
-            List.InsertAtHead(3);
-            List.InsertAtHead(2);
-            List.InsertAtHead(5);
+            int query = 48;
+            int? index = Searcher.BinarySearch(Balls, query);
 
-            // List.InsertByValue(36);
+            Console.WriteLine("result: " + index);
 
-            //Console.WriteLine(List.ToString());
-            //List.InsertionSortDList();
 
-            //Console.WriteLine(List.ToString());
 
-            ArrayStack Stack = new ArrayStack();
 
-            Stack.Push(5);
-            Console.WriteLine(Stack.Pop().ToString());
-            Stack.Push(4);
-            Console.WriteLine(Stack.Pop().ToString());
-            Stack.Push(3);
-            Console.WriteLine(Stack.Pop().ToString());
-            Stack.Push(2);
-            Console.WriteLine(Stack.Pop().ToString());
-            Stack.Push(1);
-            Console.WriteLine(Stack.Pop().ToString());
         }
         public void AppendToOutput(String text)
         {
