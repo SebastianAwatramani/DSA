@@ -18,9 +18,19 @@ namespace DS_And_A
         {
             InitializeComponent();
 
-            //int[] valsBalls = new int[6] { 10, 2, 8, 6, 7, 3 };
-            //int[] valsBalls = new int[10] { 1, 2, 4, 8, 17, 26, 37, 48, 59,110};
-            //List<int> Balls = new List<int>(valsBalls);
+            int[] valsBalls = new int[6] { 10, 2, 8, 6, 7, 3 };
+            //int[] valsBalls = new int[10] { 1, 2, 4, 8, 17, 26, 37, 48, 59, 110 };
+            List<int> Balls = new List<int>(valsBalls);
+
+            Sorter S = new Sorter(this);
+
+            Balls = S.BubbleSort(Balls);
+
+            for(int i = 0; i < Balls.Count; i++)
+            {
+                AppendToOutput(Balls[i].ToString());
+            }
+
 
             //Searcher Searcher = new Searcher(this);
 
@@ -29,25 +39,25 @@ namespace DS_And_A
 
             //Console.WriteLine("result: " + index);
 
-            Source.Queue queue = new Source.Queue(10);
+            //Source.Queue queue = new Source.Queue(10);
 
-            queue.Enqueue(1);
-            queue.Enqueue(2);
-            queue.Enqueue(3);
-            queue.Enqueue(4);
-            queue.Enqueue(5);
-            queue.Enqueue(6);
-            queue.Enqueue(7);
-            queue.Enqueue(8);
-            queue.Enqueue(9);
-            queue.Enqueue(10);
-            queue.Enqueue(11);
-            queue.Enqueue(11);
-            for (int i = queue.Count; i > 0; i--)
-            {
+            //queue.Enqueue(1);
+            //queue.Enqueue(2);
+            //queue.Enqueue(3);
+            //queue.Enqueue(4);
+            //queue.Enqueue(5);
+            //queue.Enqueue(6);
+            //queue.Enqueue(7);
+            //queue.Enqueue(8);
+            //queue.Enqueue(9);
+            //queue.Enqueue(10);
+            //queue.Enqueue(11);
+            //queue.Enqueue(11);
+            //for (int i = queue.Count; i > 0; i--)
+            //{
               
-                queue.Dequeue();
-            }
+            //    queue.Dequeue();
+            //}
 
 
 
@@ -55,7 +65,7 @@ namespace DS_And_A
         }
         public void AppendToOutput(String text)
         {
-            output.Text += text;
+            output.Text += " " + text;
         }
 
     }
