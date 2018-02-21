@@ -14,16 +14,14 @@ namespace DS_And_A.Source
         public List<int> Qu { get => _qu; set => _qu = value; }
         public int Count { get => _count; set => _count = value; }
 
-        public Queue (int capacity)
+        public Queue(int capacity)
         {
             this.Qu = new List<int>(capacity);
         }
 
-
-
         public bool CheckIfFull()
         {
-            if(this.Qu.Count >= this.Qu.Capacity)
+            if (this.Qu.Count >= this.Qu.Capacity)
             {
                 return true;
             }
@@ -59,7 +57,7 @@ namespace DS_And_A.Source
             }
             catch (OverCapacityException Exception)
             {
-                 
+
             }
         }
         public int Peek()
