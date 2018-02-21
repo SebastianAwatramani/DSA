@@ -24,11 +24,11 @@ namespace DS_And_A
             }
             this.Head = NewNode;
         }
-        public void InsertNodeAtHead(TwoWayNode NewNode)
-        {
-            NewNode.NextNode = this.Head;
-            this.Head.PreviousNode = NewNode;
-        }
+        //public void InsertNodeAtHead(TwoWayNode NewNode)
+        //{
+        //    NewNode.NextNode = this.Head;
+        //    this.Head.PreviousNode = NewNode;
+        //}
         public void InsertionSortDList()
 
         {
