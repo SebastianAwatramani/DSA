@@ -49,20 +49,21 @@ namespace DS_And_A
                 current = current.NextNode;
 
                 //this removes the current element from its unsorted place in the list by linking its previous and next elements together
-                nodeToMove.PreviousNode.NextNode = nodeToMove.NextNode;
+                RemoveUnsortedNode(nodeToMove);
 
-                if (nodeToMove.NextNode != null)
-                {
-                    nodeToMove.NextNode.PreviousNode = nodeToMove.PreviousNode;
-                }
-
-                //Commenting to save place
                 //First step is to link this node to the node at the searchpointer position
-
-
+                
                 //This places the element in its sorted position
-                InsertTwoWayNode(searchPointer, nodeToMove);
-                //searchPointer.PreviousNode = nodeToMove;
+                if (nodeToMove.Data > searchPointer.Data) //If we're not at the beginning of the list
+                {
+                    InsertSortedNode(searchPointer, nodeToMove);
+
+                }
+                else //if we are the beginning of the list
+                {
+                    InsetSortedNodeAtHead(searchPointer, nodeToMove);
+                }
+                //Set searchPointer for next iteration
                 if (current != null)
                 {
                     searchPointer = current.PreviousNode;
@@ -70,26 +71,33 @@ namespace DS_And_A
             }
         }
 
-        private void InsertTwoWayNode(TwoWayNode searchPointer, TwoWayNode nodeToMove)
+        private static void RemoveUnsortedNode(TwoWayNode nodeToMove)
         {
-            if (nodeToMove.Data > searchPointer.Data) //If we're not at the beginning of the list
-            {
-                nodeToMove.PreviousNode = searchPointer;
-                nodeToMove.NextNode = searchPointer.NextNode;
-                if (nodeToMove.NextNode != null)
-                {
-                    nodeToMove.NextNode.PreviousNode = nodeToMove;
-                }
-                searchPointer.NextNode = nodeToMove;
+            nodeToMove.PreviousNode.NextNode = nodeToMove.NextNode;
 
-            }
-            else //if we are the beginning of the list
+            if (nodeToMove.NextNode != null)
             {
-                nodeToMove.NextNode = searchPointer;
-                searchPointer.PreviousNode = nodeToMove;
-                this.Head = nodeToMove;
-                this.Head.PreviousNode = null;
+                nodeToMove.NextNode.PreviousNode = nodeToMove.PreviousNode;
             }
+        }
+
+        private void InsetSortedNodeAtHead(TwoWayNode searchPointer, TwoWayNode nodeToMove)
+        {
+            nodeToMove.NextNode = searchPointer;
+            searchPointer.PreviousNode = nodeToMove;
+            this.Head = nodeToMove;
+            this.Head.PreviousNode = null;
+        }
+
+        private static void InsertSortedNode(TwoWayNode searchPointer, TwoWayNode nodeToMove)
+        {
+            nodeToMove.PreviousNode = searchPointer;
+            nodeToMove.NextNode = searchPointer.NextNode;
+            if (nodeToMove.NextNode != null)
+            {
+                nodeToMove.NextNode.PreviousNode = nodeToMove;
+            }
+            searchPointer.NextNode = nodeToMove;
         }
 
         public override string ToString()
