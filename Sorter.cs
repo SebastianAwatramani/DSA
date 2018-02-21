@@ -14,25 +14,25 @@ namespace DS_And_A
         {
             this.Form = Form;
         }
-        public void BubbleSort(List<int> Balls)
+        public List<int> BubbleSort(List<int> Balls) //Iterates over the array performing a series of swaps which move the biggest values to the end.  On each iteration of the sub array
+                                                     //it moves to the end minus 
         {
-            int counter = 0;
+
             int Store;
-            for (int j = 0; j < Balls.Count - 1; j++)
+            for (int i = 0; i < Balls.Count; i++)
             {
-                for (int i = 0; i < Balls.Count - 1 - j; i++)
+                for (int j = 0; j < Balls.Count - 1 - i; j++)
                 {
-                    if (Balls[i + 1] < Balls[i])
+                    if (Balls[j + 1] < Balls[j])
                     {
-                        counter++;
-                        Store = Balls[i + 1];
-                        Balls[i + 1] = Balls[i];
-                        Balls[i] = Store;
+                        Store = Balls[j + 1];
+                        Balls[j + 1] = Balls[j];
+                        Balls[j] = Store;
                     }
                 }
 
             }
-            Console.WriteLine(counter);
+            return Balls;
         }
 
         public void SelectionSort(List<int> Balls)
